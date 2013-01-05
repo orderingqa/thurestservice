@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta content="text/html; charset=gb2312" http-equiv="Content-Type"/>
+  <title>Form to create a new resource</title>
+ </head>
+<body>
+  <form action="/example-1.0-SNAPSHOT/api/user" method="POST">
+  <label for="email">email</label>
+  <input id='email' name="email" value="liushuai_email"/>
+  <br/>
+  <label for="username">username</label>
+  <input id='username' name="username" value="liushuai_username"/>
+  <br/>
+  <label for="password">password</label>
+  <input id='password' name="password" value="liushuai_password"/>
+  <br/>
+  <input id='submitbutton' type="button" value="Submit" />
+  </form>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+  <script>
+  $(document).ready(function() {
+	  $('#submitbutton').click(function(){
+		  $.ajax({
+			  type:"post",
+			  contentType:"application/xml",
+			  url:"/RestService/api/user",
+			  data:"<?xml version=\"1.0\" encoding=\"UTF-8\"?><user "+
+					  "username='"+$('#username').val()+"'>"+
+					  "<password>"+$('#password').val()+"</password>"+
+					  "<email>"+$('#email').val()+"</email>"+					  
+					  "</user>",
+			  //data:"<?xml version=\"1.0\" encoding=\"UTF-8\"?><user><username>"+$('#username').val()+"</username></user>",
+			  dataType:"xml",
+			  success:function onSucc(data){
+				  parent.window.location.href = "/RestService/api/users";
+			  },
+			  error:function onErr(){alert("请求失败");}
+			  });
+		  return false;
+	  });
+  });
+  </script>
+</body>
+</html>
