@@ -12,11 +12,16 @@
   <label for="username">username</label>
   <input id='username' name="username" value="liushuai_username"/>
   <br/>
+    <label for="fbid">fbid</label>
+  <input id='fbid' name="fbid" value="200"/>
+  <br/>
+  
   <label for="firstname">firstname</label>
   <input id='firstname' name="firstname" value="liu"/>
   <br/>
   <input id='submitbutton' type="button" value="Submit" />
   </form>
+  <div id="result"></div>
   <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
   <script>
   $(document).ready(function() {
@@ -25,11 +30,11 @@
 			  type:"post",
 			  url:"/RestService/api/ic",
 			  contentType:"application/json",
-			  data:"{'@userName':'liushuai_username','@facebookId':'1','firstName':'liushuai_password','email':'liushuai_email'}",
+			  data:'{"facebookId":"'+$('#fbid').val()+'","userName":"liushuai_username","firstName":"liushuai_password","email":"liushuai_email"}',
 			  dataType:'json',
 			  success:function onSucc(data){
-				  console.log(data);
-				  parent.window.location.href = "/RestService/api/ics";
+				  //var jsdata = eval(data);
+				  parent.window.location.href = "/RestService/api/ic/"+data.id;
 			  },
 			  error:function onErr(){alert("«Î«Û ß∞‹");}
 			  });

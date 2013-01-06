@@ -12,5 +12,5 @@ import com.thu.api.domain.IndividualCustomer;
  * @author craigmackay
  */
 public interface IndividualCustomerService extends GenericDomainObjectService<IndividualCustomer, Long> {
-
+	IndividualCustomer getIndividualCustomerByFacebookId(Long facebookId);
 }

@@ -8,5 +8,5 @@ import com.thu.api.domain.IndividualCustomer;
  * @author craigmackay
  */
 public interface IndividualCustomerDao extends GenericDao<IndividualCustomer, Long>{
-
+	public IndividualCustomer findByFacebookId(Long facebookId);
 }

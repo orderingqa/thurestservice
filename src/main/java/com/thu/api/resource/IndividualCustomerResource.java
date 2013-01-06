@@ -36,15 +36,25 @@ public class IndividualCustomerResource {
     private UriInfo uriInfo;
     private IndividualCustomerService individualCustomerService;
 
-    @POST @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response create(IndividualCustomer individualCustomer) {
-        Response response = null;
-        individualCustomerService.create(individualCustomer);
-        URI billUri = uriInfo.getAbsolutePathBuilder().
-                path(String.valueOf(individualCustomer.getId())).
-                build();
-        response = Response.created(billUri).build();
-        return response;
+//    @POST @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+//    public Response create(IndividualCustomer individualCustomer) {
+//        Response response = null;
+//        individualCustomerService.create(individualCustomer);
+//        URI billUri = uriInfo.getAbsolutePathBuilder().
+//                path(String.valueOf(individualCustomer.getId())).
+//                build();
+//        response = Response.created(billUri).build();
+//        return response;
+//    }
+    
+    @POST @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML}) @Produces({ "application/xml", "application/json" })
+    public IndividualCustomer create(IndividualCustomer individualCustomer) {
+    	IndividualCustomer ic = individualCustomerService.getIndividualCustomerByFacebookId(individualCustomer.getFacebookId());
+    	if (ic == null) {
+        	individualCustomerService.create(individualCustomer);
+        	ic = individualCustomer;
+        }
+        return individualCustomerService.load(ic.getId());
     }
     
     @GET @Produces({ "application/xml", "application/json" })

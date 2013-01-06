@@ -11,11 +11,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.Index;
 
 /**
  *
@@ -31,12 +34,13 @@ public class IndividualCustomer implements DomainObject<Long> {
     @Column(name = "ic_id")
     private Long id;
     
-    @Column(name = "fb_id")
-    @XmlAttribute(required = true)
+    @Column(name = "fb_id", nullable = false)
+    @Index(name = "facebookIdIndex")
+//    @XmlAttribute(required = true)
     private Long facebookId;
     
     @Column(name = "user_name")
-    @XmlAttribute(required = true)
+//    @XmlAttribute(required = true)
     private String userName;
     
     @Column(name = "first_name")

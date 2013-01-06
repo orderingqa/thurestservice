@@ -12,4 +12,7 @@ public class IndividualCustomerServiceImpl
         extends GenericDomainObjectServiceImpl<IndividualCustomerDao, IndividualCustomer, Long> 
         implements IndividualCustomerService {
 
+	public IndividualCustomer getIndividualCustomerByFacebookId(Long facebookId) {
+		return dao.findByFacebookId(facebookId);
+	}    
 }
