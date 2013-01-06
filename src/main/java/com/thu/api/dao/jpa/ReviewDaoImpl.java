@@ -2,7 +2,7 @@ package com.thu.api.dao.jpa;
 
 import com.thu.api.dao.ReviewDao;
 import com.thu.api.domain.Review;
-import com.thu.api.domain.User;
+import com.thu.api.domain.IndividualCustomer;
 
 public class ReviewDaoImpl extends GenericDaoImpl<Review, Long> implements
 		ReviewDao {
@@ -18,14 +18,14 @@ public class ReviewDaoImpl extends GenericDaoImpl<Review, Long> implements
 			if (domainObject.getReviewer() != null) {
 				logger.debug("user = " + domainObject.getReviewer().getId());
 				logger.debug("user password = "
-						+ domainObject.getReviewer().getPassword());
+						+ domainObject.getReviewer().getEmail());
 			} else {
 				logger.debug("user of reviewer = null");
 			}
 		}
 		try { // Review中的对象是unmarshal的一个只有id的pojo，这里从DB中load出来hibernate object，然后进行持久化
-			User user = em.find(User.class, domainObject.getReviewer().getId());
-			domainObject.setReviewer(user);
+			IndividualCustomer individualCustomer = em.find(IndividualCustomer.class, domainObject.getReviewer().getId());
+			domainObject.setReviewer(individualCustomer);
 			em.persist(domainObject);
 		} catch (Exception e) {
 			e.printStackTrace();

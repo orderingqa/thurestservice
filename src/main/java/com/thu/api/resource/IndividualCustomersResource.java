@@ -3,8 +3,8 @@ package com.thu.api.resource;
 
 import com.sun.jersey.api.spring.Autowire;
 import com.sun.jersey.spi.resource.Singleton;
-import com.thu.api.domain.User;
-import com.thu.api.domain.service.UserService;
+import com.thu.api.domain.IndividualCustomer;
+import com.thu.api.domain.service.IndividualCustomerService;
 import com.thu.api.management.Monitored;
 
 import java.util.List;
@@ -20,26 +20,26 @@ import org.springframework.stereotype.Component;
  * @author craigmackay
  */
 @Singleton
-@Path("/users")
+@Path("/ics")
 @Component
 @Autowire
-public class UsersResource {
+public class IndividualCustomersResource {
     
-    private UserService userService;
+    private IndividualCustomerService individualCustomerService;
     
     @GET @Produces({ "application/xml", "application/json" })
     @Monitored("Users Read All")
-    public List<User> readAll() {
-        return userService.findAll();
+    public List<IndividualCustomer> readAll() {
+        return individualCustomerService.findAll();
     }
     
     @DELETE
     public void deleteAll() {
-        userService.deleteAll();
+        individualCustomerService.deleteAll();
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    public void setUserService(IndividualCustomerService individualCustomerService) {
+        this.individualCustomerService = individualCustomerService;
     }
 
 }

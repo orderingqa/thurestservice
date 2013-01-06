@@ -3,8 +3,8 @@ package com.thu.api.resource;
 
 import com.sun.jersey.api.spring.Autowire;
 import com.sun.jersey.spi.resource.Singleton;
-import com.thu.api.domain.User;
-import com.thu.api.domain.service.UserService;
+import com.thu.api.domain.IndividualCustomer;
+import com.thu.api.domain.service.IndividualCustomerService;
 
 import java.net.URI;
 
@@ -27,21 +27,21 @@ import org.springframework.stereotype.Component;
  * @author craigmackay
  */
 @Singleton
-@Path("/user")
+@Path("/ic")
 @Component
 @Autowire
-public class UserResource {
+public class IndividualCustomerResource {
 
     @Context
     private UriInfo uriInfo;
-    private UserService userService;
+    private IndividualCustomerService individualCustomerService;
 
     @POST @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response create(User user) {
+    public Response create(IndividualCustomer individualCustomer) {
         Response response = null;
-        userService.create(user);
+        individualCustomerService.create(individualCustomer);
         URI billUri = uriInfo.getAbsolutePathBuilder().
-                path(String.valueOf(user.getId())).
+                path(String.valueOf(individualCustomer.getId())).
                 build();
         response = Response.created(billUri).build();
         return response;
@@ -49,15 +49,15 @@ public class UserResource {
     
     @GET @Produces({ "application/xml", "application/json" })
     @Path("/{id}")
-    public User get(@PathParam("id") Long id) {
-        return userService.load(id);
+    public IndividualCustomer get(@PathParam("id") Long id) {
+        return individualCustomerService.load(id);
     }
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") Long id, User user) {
+    public Response update(@PathParam("id") Long id, IndividualCustomer individualCustomer) {
         Response response = null;
-        userService.update(user);
+        individualCustomerService.update(individualCustomer);
         response = Response.noContent().build();
         return response;
     }
@@ -65,11 +65,11 @@ public class UserResource {
     @DELETE
     @Path("/{id}")
     public void delete(@PathParam("id") Long id) {
-        userService.delete(id);
+        individualCustomerService.delete(id);
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    public void setUserService(IndividualCustomerService individualCustomerService) {
+        this.individualCustomerService = individualCustomerService;
     }
 
 }

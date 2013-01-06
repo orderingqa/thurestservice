@@ -5,12 +5,12 @@
 
 package com.thu.api.domain.service;
 
-import com.thu.api.domain.User;
+import com.thu.api.domain.IndividualCustomer;
 
 /**
  *
  * @author craigmackay
  */
-public interface UserService extends GenericDomainObjectService<User, Long> {
+public interface IndividualCustomerService extends GenericDomainObjectService<IndividualCustomer, Long> {
 
 }

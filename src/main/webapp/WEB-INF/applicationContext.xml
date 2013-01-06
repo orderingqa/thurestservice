@@ -48,11 +48,11 @@
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
     
-    <bean id="userDao" class="com.thu.api.dao.jpa.UserDaoImpl" />
+    <bean id="individualCustomerDao" class="com.thu.api.dao.jpa.IndividualCustomerDaoImpl" />
     
-    <bean id="userService" 
-        class="com.thu.api.domain.service.UserServiceImpl" 
-        p:dao-ref="userDao" />
+    <bean id="individualCustomerService" 
+        class="com.thu.api.domain.service.IndividualCustomerServiceImpl" 
+        p:dao-ref="individualCustomerDao" />
         
    <bean id="reviewDao" class="com.thu.api.dao.jpa.ReviewDaoImpl" />
     

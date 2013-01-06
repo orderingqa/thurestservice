@@ -12,8 +12,8 @@
   <label for="username">username</label>
   <input id='username' name="username" value="liushuai_username"/>
   <br/>
-  <label for="password">password</label>
-  <input id='password' name="password" value="liushuai_password"/>
+  <label for="firstname">firstname</label>
+  <input id='firstname' name="firstname" value="liu"/>
   <br/>
   <input id='submitbutton' type="button" value="Submit" />
   </form>
@@ -23,17 +23,13 @@
 	  $('#submitbutton').click(function(){
 		  $.ajax({
 			  type:"post",
-			  contentType:"application/xml",
-			  url:"/RestService/api/user",
-			  data:"<?xml version=\"1.0\" encoding=\"UTF-8\"?><user "+
-					  "username='"+$('#username').val()+"'>"+
-					  "<password>"+$('#password').val()+"</password>"+
-					  "<email>"+$('#email').val()+"</email>"+					  
-					  "</user>",
-			  //data:"<?xml version=\"1.0\" encoding=\"UTF-8\"?><user><username>"+$('#username').val()+"</username></user>",
-			  dataType:"xml",
+			  url:"/RestService/api/ic",
+			  contentType:"application/json",
+			  data:"{'@userName':'liushuai_username','@facebookId':'1','firstName':'liushuai_password','email':'liushuai_email'}",
+			  dataType:'json',
 			  success:function onSucc(data){
-				  parent.window.location.href = "/RestService/api/users";
+				  console.log(data);
+				  parent.window.location.href = "/RestService/api/ics";
 			  },
 			  error:function onErr(){alert("«Î«Û ß∞‹");}
 			  });

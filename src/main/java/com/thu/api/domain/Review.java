@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import com.thu.api.adapter.UserXMLAdapter;
+import com.thu.api.adapter.IndividualCustomerXMLAdapter;
 
 /**
  * @author LS
@@ -28,7 +28,7 @@ import com.thu.api.adapter.UserXMLAdapter;
  */
 
 @Entity
-@Table(name="t_review")
+@Table(name="Review")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "review")
 public class Review implements DomainObject<Long> {
@@ -52,13 +52,13 @@ public class Review implements DomainObject<Long> {
 	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn (name="re_reviewer_id")
 	@Fetch (FetchMode.JOIN)
-	@XmlJavaTypeAdapter (UserXMLAdapter.class)
-	private User reviewer;
+	@XmlJavaTypeAdapter (IndividualCustomerXMLAdapter.class)
+	private IndividualCustomer reviewer;
 
 	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn (name="re_reviewee_id")
 	@Fetch (FetchMode.JOIN)
-	private User reviewee;
+	private IndividualCustomer reviewee;
 
 	public String getImageUrl() {
 		return imageUrl;
@@ -82,19 +82,19 @@ public class Review implements DomainObject<Long> {
 		return null;
 	}
 
-	public User getReviewer() {
+	public IndividualCustomer getReviewer() {
 		return reviewer;
 	}
 
-	public void setReviewer(User reviewer) {
+	public void setReviewer(IndividualCustomer reviewer) {
 		this.reviewer = reviewer;
 	}
 
-	public User getReviewee() {
+	public IndividualCustomer getReviewee() {
 		return reviewee;
 	}
 
-	public void setReviewee(User reviewee) {
+	public void setReviewee(IndividualCustomer reviewee) {
 		this.reviewee = reviewee;
 	}
 
