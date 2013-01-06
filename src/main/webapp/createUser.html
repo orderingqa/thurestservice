@@ -28,13 +28,13 @@
 	  $('#submitbutton').click(function(){
 		  $.ajax({
 			  type:"post",
-			  url:"/RestService/api/ic",
+			  url:"/api/ic",
 			  contentType:"application/json",
 			  data:'{"facebookId":"'+$('#fbid').val()+'","userName":"liushuai_username","firstName":"liushuai_password","email":"liushuai_email"}',
 			  dataType:'json',
 			  success:function onSucc(data){
 				  //var jsdata = eval(data);
-				  parent.window.location.href = "/RestService/api/ic/"+data.id;
+				  parent.window.location.href = "/api/ic/"+data.id;
 			  },
 			  error:function onErr(){alert("«Î«Û ß∞‹");}
 			  });
