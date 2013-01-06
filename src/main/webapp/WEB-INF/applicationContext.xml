@@ -53,13 +53,6 @@
     <bean id="individualCustomerService" 
         class="com.thu.api.domain.service.IndividualCustomerServiceImpl" 
         p:dao-ref="individualCustomerDao" />
-        
-   <bean id="reviewDao" class="com.thu.api.dao.jpa.ReviewDaoImpl" />
-    
-    <bean id="reviewService" 
-        class="com.thu.api.domain.service.ReviewServiceImpl" 
-        p:dao-ref="reviewDao" />
-    
     <context:component-scan base-package="com.thu.api.resource" />
     
 </beans>
