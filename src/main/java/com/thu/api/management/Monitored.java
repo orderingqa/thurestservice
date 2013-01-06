@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 /**
  * Indicates that an annotated class or method should be monitored
  *
- * @author craigmackay
+ * @author liushuai
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

@@ -6,7 +6,7 @@ import com.thu.api.domain.IndividualCustomer;
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 public class IndividualCustomerServiceImpl 
         extends GenericDomainObjectServiceImpl<IndividualCustomerDao, IndividualCustomer, Long> 

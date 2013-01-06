@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 @Singleton
 @Path("/ics")

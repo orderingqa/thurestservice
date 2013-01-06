@@ -22,7 +22,7 @@ import org.hibernate.annotations.Index;
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 @Entity
 @Table(name = "IC")

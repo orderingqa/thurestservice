@@ -15,7 +15,7 @@ import com.thu.api.domain.*;
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 @Repository
 public abstract class GenericDaoImpl<DO extends DomainObject, ID extends Serializable>

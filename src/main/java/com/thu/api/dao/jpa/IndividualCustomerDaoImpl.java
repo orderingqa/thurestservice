@@ -10,7 +10,7 @@ import com.thu.api.domain.IndividualCustomer;
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 public class IndividualCustomerDaoImpl extends GenericDaoImpl<IndividualCustomer, Long> implements IndividualCustomerDao  {
 

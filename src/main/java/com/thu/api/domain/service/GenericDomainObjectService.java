@@ -10,12 +10,12 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 public interface GenericDomainObjectService<DO extends DomainObject<ID>, ID extends Serializable> {
 

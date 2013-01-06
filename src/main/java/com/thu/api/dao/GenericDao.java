@@ -8,7 +8,7 @@ import javax.persistence.EntityNotFoundException;
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 public interface GenericDao<DO extends DomainObject, ID extends Serializable> {
 

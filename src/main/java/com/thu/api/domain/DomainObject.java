@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author craigmackay
+ * @author liushuai
  */
 public interface DomainObject<ID extends Serializable> extends Serializable {
 
