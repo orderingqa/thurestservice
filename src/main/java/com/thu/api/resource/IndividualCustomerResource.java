@@ -47,7 +47,7 @@ public class IndividualCustomerResource {
 //        return response;
 //    }
     
-    @POST @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML}) @Produces({ "application/xml", "application/json" })
+    @POST @Consumes({MediaType.APPLICATION_JSON}) @Produces({"application/json" })
     public IndividualCustomer create(IndividualCustomer individualCustomer) {
     	IndividualCustomer ic = individualCustomerService.getIndividualCustomerByFacebookId(individualCustomer.getFacebookId());
     	if (ic == null) {
@@ -57,7 +57,7 @@ public class IndividualCustomerResource {
         return individualCustomerService.load(ic.getId());
     }
     
-    @GET @Produces({ "application/xml", "application/json" })
+    @GET @Produces({ "application/json" })
     @Path("/{id}")
     public IndividualCustomer get(@PathParam("id") Long id) {
         return individualCustomerService.load(id);

@@ -27,7 +27,7 @@ public class IndividualCustomersResource {
     
     private IndividualCustomerService individualCustomerService;
     
-    @GET @Produces({ "application/xml", "application/json" })
+    @GET @Produces({"application/json" })
     @Monitored("Users Read All")
     public List<IndividualCustomer> readAll() {
         return individualCustomerService.findAll();
